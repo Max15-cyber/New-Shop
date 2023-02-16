@@ -1,0 +1,54 @@
+{% extends "shop/products.html" %}
+
+{% block content %}
+<div class="item-page">
+    <h1 class="products__title">{{product.product_name}}</h1>
+    <img class="item-page__img" src="{{product.image.url}}" alt="">
+    <p class="item-page__desc">{{product.product_description}}</p>
+    <p class="product__price">Price: <span class="products__price">{{product.product_price}}</span>$</p>
+    <button data-id="{{product.id}}" class="butn products__btn">Add to cart</button>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Buy Now
+    </button>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">{{product.product_name}}</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form method="POST" action="/save_order">
+                {% csrf_token %}
+                <div class="mb-3">
+                  <label for="user_name" class="form-label">Your name</label>
+                  <input type="text" class="form-control" id="user_name" name="user_name" required aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" name="user_email" required aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                  </div>
+                <input type="hidden" name="product_id" value="{{product.id}}">
+                <button type="submit" class="btn btn-primary">Order</button>
+              </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+
+<!-- class="products_link" -->
+
+<!-- <div class="products__item">
+    <h4 class="products__title">{{product.product_name}}</h4>
+    <a href="#" >
+        <img src="{{product.image.url}}" alt="" class="products__img">
+    </a>
+    <p class="products__description">{{product.product_description}}</p>
+    <p class="product__price">Price: <span class="products__price">{{product.product_price}}</span>$</p>
+    <button data-id="{{product.id}}" class="btn products__btn">Add to cart</button>
+</div> -->
