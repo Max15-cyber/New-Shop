@@ -16,5 +16,12 @@ def product_detail(request, pk):
     return render(request, 'shop/products_detail.html', context={'product': product, 'categories': categories})
 
 def save_order(request):
-    print(request.POST['product_id'])
-    return render(request, 'shop/products.html')
+    # print(request.POST['product_id'])
+
+    product = Product.objects.get(pk=request.POST['product_id'])
+    order = Order()
+    order.name = request.POST['user_name']
+    order.email = request.POST['user_email']
+    order.product = product
+    order.save()
+    return render(request, 'shop/products.html', context={'product': product})

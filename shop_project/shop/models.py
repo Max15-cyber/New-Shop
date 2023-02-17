@@ -23,3 +23,11 @@ class Category(models.Model):
 
     def get_absolute_url(self):
         return reverse('post_list_url', kwargs={'pk': self.pk})
+
+class Order(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=100)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
