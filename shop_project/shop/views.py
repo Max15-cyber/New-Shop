@@ -24,4 +24,7 @@ def save_order(request):
     order.email = request.POST['user_email']
     order.product = product
     order.save()
-    return render(request, 'shop/products.html', context={'product': product})
+    categories = Category.objects.all()
+    return render(request, 'shop/order.html', context={'product': product, 'categories': categories})
+
+

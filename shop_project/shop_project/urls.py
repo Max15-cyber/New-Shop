@@ -25,7 +25,7 @@ urlpatterns = [
     path('', product_list, name='index_url'),
     path('cat/<int:pk>/', product_list, name='post_list_url'),
     path('product/<int:pk>/', product_detail, name='product_detail_url'),
-    path('save_order', save_order, name='post_list_url')
+    path('save_order', save_order, name='post_list_url'),
 
 ]
 

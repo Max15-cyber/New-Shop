@@ -1,0 +1,15 @@
+{% extends "shop/index.html" %}
+
+{% block title %}
+Order
+{% endblock title %}
+
+{% block menu %}
+{% for category in categories %}
+<li><a href="{{category.get_absolute_url}}" class="menu__link">{{category.title}}</a></li>
+{% endfor %}
+{% endblock menu %}
+
+{% block content %}
+<div class="order__message">Ваш заказ обработан! Проверьте электронную почту!</div>
+{% endblock content %}

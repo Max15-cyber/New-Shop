@@ -116,7 +116,10 @@ ul, ol, li {
     cursor: pointer;
 }
 .products__title{
-    height: 35px;
+    text-align: center;
+    height: 40px;
+    margin-bottom: 25px;
+    font-size: x-large;
     color: green;
 }
 .products__price{
@@ -140,6 +143,13 @@ ul, ol, li {
     height: 120px;
     border-radius: 5px;
 }
+.order__message{
+    color: greenyellow;
+    font-size: xx-large;
+    text-align: center;
+
+}
+
 .alert-product{
     position: fixed;
     top: 40px;
