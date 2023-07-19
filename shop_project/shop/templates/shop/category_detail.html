@@ -1,0 +1,21 @@
+{% extends "shop/index.html" %}
+
+{% block title %}
+Shop
+{% endblock title %}
+
+{% block content %}
+<main class="products">
+    {% for product in category.products.all %}
+    <div class="products__item">
+        <h4 class="products__title">{{product.product_name}}</h4>
+        <a href="{{product.get_absolute_url}}" class="products_link">
+            <img src="{{product.image.url}}" alt="" class="products__img">
+        </a>
+        <p class="products__description">{{product.product_description|truncatewords:15}}</p>
+        <p class="product__price">Price: <span class="products__price">{{product.product_price}}</span>$</p>
+        <button data-id="{{product.id}}" class="butn products__btn">Add to cart</button>
+    </div>
+    {% endfor %}
+</main>
+{% endblock content %}

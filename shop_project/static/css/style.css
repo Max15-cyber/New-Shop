@@ -73,6 +73,26 @@ ul, ol, li {
     color: rgb(80, 133, 0);
     border-color: rgb(153, 255, 0);
 }
+
+.search-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 300px;
+}
+.search-form__input{
+    display: block;
+    border-radius: 5px;
+    border-color: green;
+    background-color: greenyellow;   
+    color: greenyellow; 
+}
+.search-form__submit{
+    background-color: green;
+    color: greenyellow;
+    border-radius: 10px;
+}
+
 .cart-icon{
     width: 60px;
     height: 60px;
@@ -143,6 +163,9 @@ ul, ol, li {
     height: 120px;
     border-radius: 5px;
 }
+
+
+
 .order__message{
     color: greenyellow;
     font-size: xx-large;

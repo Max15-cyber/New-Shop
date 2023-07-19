@@ -22,11 +22,10 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', product_list, name='index_url'),
-    path('cat/<int:pk>/', product_list, name='post_list_url'),
-    path('product/<int:pk>/', product_detail, name='product_detail_url'),
+    path('', ProductListView.as_view(), name='index_url'),
+    path('cat/<int:pk>/', CategoryDetailView.as_view(), name='post_list_url'),
+    path('product/<int:pk>/', ProductDetailView.as_view(), name='product_detail_url'),
     path('save_order', save_order, name='post_list_url'),
-
 ]
 
 if settings.DEBUG:

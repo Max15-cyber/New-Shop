@@ -4,15 +4,9 @@
 Shop
 {% endblock title %}
 
-{% block menu %}
-{% for category in categories %}
-<li><a href="{{category.get_absolute_url}}" class="menu__link">{{category.title}}</a></li>
-{% endfor %}
-{% endblock menu %}
-
 {% block content %}
 <main class="products">
-    {% for product in products %}
+    {% for product in product_list %}
     <div class="products__item">
         <h4 class="products__title">{{product.product_name}}</h4>
         <a href="{{product.get_absolute_url}}" class="products_link">

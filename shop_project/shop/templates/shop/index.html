@@ -26,10 +26,15 @@
         <nav>
             <ul class="menu">
                 <li><a href="{% url 'index_url' %}" class="menu__link">Home</a></li>
-                {% block menu %}
-                {% endblock menu %}
+                {% for category in category_list %}
+                <li><a href="{{category.get_absolute_url}}" class="menu__link">{{category.title}}</a></li>
+                {% endfor %}
             </ul>
         </nav>
+        <form class="search-form d-flex" role="search" action="{% url 'index_url' %}">
+            <input class="search-form__input form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+            <button class="search-form__submit btn btn-outline-success" type="submit">Search</button>
+        </form>
         <div class="cart-icon" id="cart-icon">
             <span class="amount" id="amount"></span>
         </div>
